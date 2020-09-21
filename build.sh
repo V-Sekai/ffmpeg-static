@@ -128,7 +128,7 @@ if [ ! -z "$cross_platform" ]; then
       accel_opts="--enable-d3d11va --enable-dxva2"
       cross_platform_flags="$accel_opts --arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32-"
       cc_lib_prefix="-static"
-      cc_extra_libs="-lole32"
+      cc_extra_libs="-lole32 -lm"
       ;;
     'darwin')
       platform=darwin
