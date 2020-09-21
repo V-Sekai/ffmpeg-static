@@ -244,7 +244,7 @@ download \
 
 download \
   "n4.3.1.tar.gz" \
-  "ffmpeg-4.3.1.tar.gz"
+  "ffmpeg-4.3.1.tar.gz" \
   "4749a5e56f31e7ccebd3f9924972220f" \
   "https://github.com/FFmpeg/FFmpeg/archive"
 
