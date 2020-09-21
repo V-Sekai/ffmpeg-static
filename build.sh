@@ -298,7 +298,7 @@ echo "*** Building libvorbis ***"
 cd $BUILD_DIR/vorbis*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
 ./autogen.sh
-./configure --prefix=$TARGET_DIR --enable-static --disable-shared --with-pic $cc_flags \
+./configure --prefix=$TARGET_DIR --disable-shared --with-pic $cc_flags \
   --disable-oggtest --disable-examples --disable-docs $cc_dep_lib_extra
 make -j $jval
 make install
