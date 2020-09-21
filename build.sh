@@ -327,6 +327,7 @@ cd $BUILD_DIR/FFmpeg*
 
 [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
 set -x
+patch < "../../patches/ffmpeg-static\patches\0001-Add-ability-for-ffmpeg-to-run-svt-av1.patch of Package ffmpeg-4.patch"
 EXTRA_LIBS="$cc_lib_prefix -lpthread -lm $cc_extra_libs" # -lz
 PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --prefix="$FINAL_TARGET_DIR" \
