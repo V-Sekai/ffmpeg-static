@@ -324,7 +324,6 @@ PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --disable-everything \
   $debug_flags \
   --disable-gpl --disable-nonfree --disable-programs \
-  --disable-shared --disable-static \
   --enable-decoder=libopus --enable-decoder=opus \
   --enable-decoder=vp9 \
   --enable-decoder=libvorbis --enable-decoder=vorbis \
