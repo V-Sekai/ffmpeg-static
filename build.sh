@@ -128,7 +128,7 @@ if [ ! -z "$cross_platform" ]; then
       accel_opts="--enable-d3d11va --enable-dxva2"
       cross_platform_flags="$accel_opts --arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32-"
       cc_lib_prefix="-static"
-      cc_extra_libs="-lole32"
+      cc_extra_libs="-lole32 -lm"
       ;;
     'darwin')
       platform=darwin
@@ -327,11 +327,14 @@ PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --enable-shared --disable-static \
   --enable-decoder=libopus --enable-decoder=opus \
   --enable-decoder=vp9 \
+  --enable-decoder=libvorbis --enable-decoder=vorbis \
   --enable-parser=vp9 --enable-parser=opus \
   --enable-parser=vorbis \
   --enable-demuxer=matroska \
   --enable-demuxer=opus \
+  --enable-demuxer=vorbis \
   --enable-libopus \
+  --enable-libvorbis \
   --enable-opengl \
   $cross_platform_flags
 #  --enable-libmfx \
