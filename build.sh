@@ -349,8 +349,6 @@ PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --enable-parser=vp9 --enable-parser=opus \
   --enable-parser=vorbis \
   --enable-demuxer=matroska \
-  --enable-demuxer=opus \
-  --enable-demuxer=vorbis \
   --enable-libopus \
   --enable-libvpx \
   --enable-libvorbis \
