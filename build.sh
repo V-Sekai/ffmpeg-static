@@ -242,6 +242,7 @@ download \
   "689dc495b22c5f08246c00dab35f1dc7" \
   "https://github.com/xiph/vorbis/archive/"
 
+rm -rf FFmpeg
 git clone https://github.com/FFmpeg/FFmpeg FFmpeg
 
 download \
