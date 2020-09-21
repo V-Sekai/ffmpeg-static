@@ -242,11 +242,7 @@ download \
   "689dc495b22c5f08246c00dab35f1dc7" \
   "https://github.com/xiph/vorbis/archive/"
 
-download \
-  "n4.3.1.tar.gz" \
-  "ffmpeg-4.3.1.tar.gz" \
-  "426ca412ca61634a248c787e29507206" \
-  "https://github.com/FFmpeg/FFmpeg/archive"
+git clone https://github.com/FFmpeg/FFmpeg FFmpeg
 
 download \
   "v0.8.5.tar.gz" \
@@ -327,7 +323,6 @@ cd $BUILD_DIR/FFmpeg*
 
 [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
 set -x
-patch -s < ../../patches/0001-Add-ability-for-ffmpeg-to-run-svt-av1.patch\ of\ Package\ ffmpeg-4.patch || true 
 EXTRA_LIBS="$cc_lib_prefix -lpthread -lm $cc_extra_libs" # -lz
 PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --prefix="$FINAL_TARGET_DIR" \
