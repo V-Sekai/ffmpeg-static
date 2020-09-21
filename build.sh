@@ -313,7 +313,7 @@ make install
 echo "*** Building SVT-AV1 ***"
 cd $BUILD_DIR/SVT-AV1*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-cmake --install $BUILD_DIR/vorbis/build --prefix $TARGET_DIR
+cmake --install $BUILD_DIR/SVT-AV1 --prefix $TARGET_DIR
 
 fi
 
