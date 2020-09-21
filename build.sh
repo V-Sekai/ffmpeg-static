@@ -312,10 +312,11 @@ make install
 
 echo "*** Building SVT-AV1 ***"
 cd $BUILD_DIR/SVT-AV1*
+mkdir -p build
+cd build
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-cmake . --prefix $TARGET_DIR
-make -j $jval
-make install
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$TARGET_DIR ..
+cmake --build . --target install
 
 fi
 
