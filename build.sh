@@ -244,9 +244,15 @@ download \
 
 download \
   "n4.3.1.tar.gz" \
-  "ffmpeg4.3.1.tar.gz" \
+  "ffmpeg-4.3.1.tar.gz"
   "4749a5e56f31e7ccebd3f9924972220f" \
   "https://github.com/FFmpeg/FFmpeg/archive"
+
+download \
+  "v0.8.5.tar.gz" \
+  "SVT-AV1-0.8.5.tar.gz" \
+  "4749a5e56f31e7ccebd3f9924972220f" \
+  "https://github.com/AOMediaCodec/SVT-AV1/archive"
 
 git clone https://github.com/OpenVisualCloud/SVT-AV1.git -b v0.8.5 SVT-AV1
 
