@@ -239,7 +239,7 @@ download \
 download \
   "v1.3.7.tar.gz" \
   "vorbis-1.3.7.tar.gz" \
-  "0e982409a9c3fc82ee06e08205b1355e5c6aa4c36bca58146ef399621b0ce5ab" \
+  "689dc495b22c5f08246c00dab35f1dc7" \
   "https://github.com/xiph/vorbis/archive/"
 
 download \
