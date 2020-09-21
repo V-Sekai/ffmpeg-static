@@ -128,7 +128,7 @@ if [ ! -z "$cross_platform" ]; then
       accel_opts="--enable-d3d11va --enable-dxva2"
       cross_platform_flags="$accel_opts --arch=x86_64 --target-os=mingw32 --cross-prefix=x86_64-w64-mingw32-"
       cc_lib_prefix="-static"
-      cc_extra_libs="-lole32 -lm"
+      cc_extra_libs="-lole32"
       ;;
     'darwin')
       platform=darwin
@@ -315,6 +315,7 @@ set -x
 EXTRA_LIBS="$cc_lib_prefix -lpthread -lm $cc_extra_libs" # -lz
 PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --prefix="$FINAL_TARGET_DIR" \
+  --pkg-config=pkg-config \
   --pkg-config-flags="--static" \
   --extra-cflags="-I$TARGET_DIR/include" \
   --extra-ldflags="-L$TARGET_DIR/lib" \
