@@ -313,7 +313,7 @@ cd $BUILD_DIR/FFmpeg*
 [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
 set -x
 EXTRA_LIBS="$cc_lib_prefix -lpthread -lm $cc_extra_libs" # -lz
-PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure \
+PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --prefix="$FINAL_TARGET_DIR" \
   --pkg-config-flags="--static" \
   --extra-cflags="-I$TARGET_DIR/include" \
@@ -321,18 +321,9 @@ PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure \
   --extra-libs="$EXTRA_LIBS" \
   --bindir="$BIN_DIR" \
   \
-  --disable-everything \
   $debug_flags \
   --disable-gpl --disable-nonfree --disable-programs \
   --enable-shared --disable-static \
-  --enable-decoder=libopus --enable-decoder=opus \
-  --enable-decoder=vp9 \
-  --enable-decoder=libvorbis --enable-decoder=vorbis \
-  --enable-parser=vp9 --enable-parser=opus \
-  --enable-parser=vorbis \
-  --enable-demuxer=matroska \
-  --enable-demuxer=opus \
-  --enable-demuxer=vorbis \
   --enable-libopus \
   --enable-libvorbis \
   --enable-opengl \
