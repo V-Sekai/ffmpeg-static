@@ -237,9 +237,9 @@ download \
   "https://github.com/xiph/ogg/archive/"
 
 download \
-  "v1.3.6.tar.gz" \
-  "vorbis-1.3.6.tar.gz" \
-  "03e967efb961f65a313459c5d0f4cbfb" \
+  "v1.3.7.tar.gz" \
+  "vorbis-1.3.7.tar.gz" \
+  "0e982409a9c3fc82ee06e08205b1355e5c6aa4c36bca58146ef399621b0ce5ab" \
   "https://github.com/xiph/vorbis/archive/"
 
 download \
