@@ -158,7 +158,7 @@ fi
 echo "$platform" > $ENV_ROOT/.config-platform
 
 #if you want a rebuild
-#rm -rf "$BUILD_DIR" "$TARGET_DIR"
+rm -rf "$BUILD_DIR" "$TARGET_DIR"
 mkdir -p "$BUILD_DIR" "$TARGET_DIR" "$DOWNLOAD_DIR" "$BIN_DIR"
 
 #download and extract package
