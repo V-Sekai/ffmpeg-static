@@ -340,7 +340,7 @@ PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --extra-libs="$EXTRA_LIBS" \
   --bindir="$BIN_DIR" \
   \
-  --disable-everything \  
+  --disable-everything \
   --enable-shared --disable-static \
   $debug_flags \
   --disable-gpl --disable-nonfree --disable-programs \
