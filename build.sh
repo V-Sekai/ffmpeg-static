@@ -317,9 +317,8 @@ make install
 # [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
 # cmake -DCMAKE_INSTALL_PREFIX:PATH=$TARGET_DIR -DBUILD_SHARED_LIBS= .. 
 # cmake --build . --target install
-
-cd $BUILD_DIR/SVT-AV1*
-./Build/linux/build.sh --prefix $TARGET_DIR --static -s Windows release
+# cd $BUILD_DIR/SVT-AV1*
+# ./Build/linux/build.sh --prefix $TARGET_DIR --static -s Windows release
 
 fi
 
