@@ -251,7 +251,7 @@ download \
 download \
   "v0.8.5.tar.gz" \
   "SVT-AV1-0.8.5.tar.gz" \
-  "4749a5e56f31e7ccebd3f9924972220f" \
+  "bd5d4a9257565d451415d4fda3e5e3c7" \
   "https://github.com/AOMediaCodec/SVT-AV1/archive"
 
 git clone https://github.com/OpenVisualCloud/SVT-AV1.git -b v0.8.5 SVT-AV1
