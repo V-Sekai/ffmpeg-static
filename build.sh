@@ -207,6 +207,12 @@ download \
   "https://github.com/xiph/opus/releases/download/v1.1.2"
 
 download \
+  "v1.6.1.tar.gz" \
+  "vpx-1.6.1.tar.gz" \
+  "b0925c8266e2859311860db5d76d1671" \
+  "https://github.com/webmproject/libvpx/archive"
+
+download \
   "rtmpdump-2.3.tgz" \
   "" \
   "eb961f31cd55f0acf5aad1a7b900ef59" \
@@ -286,6 +292,17 @@ cd $BUILD_DIR/opus*
 make
 make install
 
+
+echo "*** Building libvpx ***"
+cd $BUILD_DIR/libvpx*
+[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+[ ! -f config.status ] && PATH="$BIN_DIR:$PATH" CROSS=$cc_cross_env ./configure --prefix=$TARGET_DIR \
+  --disable-examples --disable-unit-tests --enable-pic --enable-multithread \
+  $libvpx_cc_flags
+PATH="$BIN_DIR:$PATH" make -j $jval
+make install
+
+
 echo "*** Building libogg ***"
 cd $BUILD_DIR/ogg*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
@@ -334,6 +351,7 @@ PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --enable-demuxer=opus \
   --enable-demuxer=vorbis \
   --enable-libopus \
+  --enable-libvpx \
   --enable-libvorbis \
   --enable-opengl \
   $cross_platform_flags
