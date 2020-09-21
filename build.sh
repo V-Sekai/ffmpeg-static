@@ -280,7 +280,7 @@ fi
 echo "*** Building opus ***"
 cd $BUILD_DIR/opus*
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-[ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --disable-shared --with-pic \
+[ ! -f config.status ] && ./configure --prefix=$TARGET_DIR --enable-static --disable-shared --with-pic \
   --enable-intrinsics --disable-extra-programs \
   $cc_flags $cc_dep_lib_extra
 make
