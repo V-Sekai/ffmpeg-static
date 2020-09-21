@@ -248,6 +248,8 @@ download \
   "4749a5e56f31e7ccebd3f9924972220f" \
   "https://github.com/FFmpeg/FFmpeg/archive"
 
+git clone https://github.com/OpenVisualCloud/SVT-AV1.git -b v0.8.5 SVT-AV1
+
 [ $download_only -eq 1 ] && exit 0
 
 cc_flags=
@@ -304,6 +306,11 @@ cd $BUILD_DIR/vorbis*
 make -j $jval
 make install
 
+echo "*** Building SVT-AV1 ***"
+cd $BUILD_DIR/SVT-AV1*
+[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
+cmake --install $BUILD_DIR/vorbis/build --prefix $TARGET_DIR
+
 fi
 
 # FFMpeg
@@ -330,6 +337,7 @@ PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --enable-decoder=libopus --enable-decoder=opus \
   --enable-decoder=vp9 \
   --enable-decoder=vp8 \
+  --enable-libsvtav1 \
   --enable-decoder=libvorbis --enable-decoder=vorbis \
   --enable-parser=vp9 --enable-parser=opus \
   --enable-parser=vorbis \
