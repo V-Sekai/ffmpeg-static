@@ -108,7 +108,7 @@ esac
 # defaults are for linux
 # vaapi and vdpau don't show a significant increase in performance
 # and cause portability issues
-cross_platform_flags="--disable-vaapi --disable-vdpau"
+cross_platform_flags="--disable-vaapi --disable-vdpa -fPIC"
 # enable-opencl does not show a signfificant peformance benefit
 # and causes portability issues
 #"--enable-opencl"
