@@ -257,6 +257,7 @@ download \
 [ $download_only -eq 1 ] && exit 0
 
 cc_flags=
+libvpx_cc_flags=
 if [ ! -z "$cc_triplet" ]; then
   cc_flags="--host=$cc_triplet"
 fi
