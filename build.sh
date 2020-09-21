@@ -316,7 +316,7 @@ cmake -DCMAKE_INSTALL_PREFIX:PATH=$TARGET_DIR -DBUILD_SHARED_LIBS= ..
 cmake --build . --target install
 
 cd $BUILD_DIR/SVT-AV1*
-./Build/linux/build.sh --prefix $TARGET_DIR --static -c x86_64-w64-mingw32- -s Windows release
+./Build/linux/build.sh --prefix $TARGET_DIR --static -s Windows release
 
 fi
 
