@@ -313,7 +313,7 @@ cd $BUILD_DIR/FFmpeg*
 [ ! -f config.status ] && PATH="$BIN_DIR:$PATH" \
 set -x
 EXTRA_LIBS="$cc_lib_prefix -lpthread -lm $cc_extra_libs" # -lz
-PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
+PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig:$PKG_CONFIG_PATH" ./configure \
   --prefix="$FINAL_TARGET_DIR" \
   --pkg-config-flags="--static" \
   --extra-cflags="-I$TARGET_DIR/include" \
