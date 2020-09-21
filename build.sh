@@ -312,7 +312,7 @@ cd $BUILD_DIR/SVT-AV1*
 mkdir -p build
 cd build
 [ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-cmake -DCMAKE_INSTALL_PREFIX:PATH=$TARGET_DIR ..
+cmake -DCMAKE_INSTALL_PREFIX:PATH=$TARGET_DIR -DBUILD_SHARED_LIBS=OFF .. 
 cmake --build . --target install
 
 fi
