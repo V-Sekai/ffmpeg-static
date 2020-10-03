@@ -108,9 +108,7 @@ esac
 # defaults are for linux
 # vaapi and vdpau don't show a significant increase in performance
 # and cause portability issues
-# vaapi is required for av1 acceleration
-#cross_platform_flags="--disable-vaapi"
-cross_platform_flags=
+cross_platform_flags="--disable-vaapi"
 # enable-opencl does not show a signfificant peformance benefit
 # and causes portability issues
 #"--enable-opencl"
@@ -245,16 +243,10 @@ download \
   "https://github.com/xiph/vorbis/archive/"
 
 download \
-  "master.tar.gz" \
-  "ffmpeg-master.tar.gz" \
-  "master" \
+  "n4.0.tar.gz" \
+  "ffmpeg4.0.tar.gz" \
+  "4749a5e56f31e7ccebd3f9924972220f" \
   "https://github.com/FFmpeg/FFmpeg/archive"
-
-download \
-  "v0.8.5.tar.gz" \
-  "SVT-AV1-0.8.5.tar.gz" \
-  "bd5d4a9257565d451415d4fda3e5e3c7" \
-  "https://github.com/AOMediaCodec/SVT-AV1/archive"
 
 [ $download_only -eq 1 ] && exit 0
 
@@ -312,16 +304,6 @@ cd $BUILD_DIR/vorbis*
 make -j $jval
 make install
 
-echo "*** Building SVT-AV1 ***"
-cd $BUILD_DIR/SVT-AV1*
-mkdir -p build
-cd build
-[ $rebuild -eq 1 -a -f Makefile ] && make distclean || true
-CCFLAGS=$cc_flags cmake -G 'Unix Makefiles' -DCMAKE_INSTALL_PREFIX=$TARGET_DIR -DBUILD_SHARED_LIBS= .. 
-make -j $jval
-make install
-
-
 fi
 
 # FFMpeg
@@ -348,17 +330,16 @@ PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig" ./configure \
   --enable-decoder=libopus --enable-decoder=opus \
   --enable-decoder=vp9 \
   --enable-decoder=vp8 \
-  --enable-decoder=av1 \
-  --enable-libsvtav1 \
   --enable-decoder=libvorbis --enable-decoder=vorbis \
-  --enable-parser=av1 --enable-parser=vp9 --enable-parser=opus \
+  --enable-parser=vp9 --enable-parser=opus \
   --enable-parser=vorbis \
   --enable-demuxer=matroska \
-  --enable-demuxer=dash \
+  --enable-demuxer=hls \
   --enable-libopus \
   --enable-libvorbis \
   --enable-opengl \
   $cross_platform_flags
+#  --enable-libmfx \
 
 PATH="$BIN_DIR:$PATH" make -j $jval
 rm_symver $PWD/ffbuild/config.mak

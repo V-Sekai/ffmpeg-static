@@ -130,7 +130,7 @@ sub download
   $sum =~ /^(\w+)\s*/ or die "Could not generate md5sum\n";
   $sum = $1;
 
-  if (($md5sum =~ /\w{32}/) and ($sum ne $md5sum) and ($md5sum ne "nil") && $md5sum != "master" ) {
+  if (($md5sum =~ /\w{32}/) and ($sum ne $md5sum) and ($md5sum ne "nil")) {
     print STDERR "MD5 sum of the downloaded file does not match (file: $sum, requested: $md5sum) - deleting download.\n";
     cleanup();
     return;
